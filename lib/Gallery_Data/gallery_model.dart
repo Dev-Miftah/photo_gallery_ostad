@@ -4,7 +4,11 @@ class GalleryModel{
  String? galleryDescription;
  String? imagePath;
 
- GalleryModel({required this.galleryName, required this.galleryTitle, required this.galleryDescription, required this.imagePath});
+ GalleryModel({
+   required this.galleryName,
+   required this.galleryTitle,
+   required this.galleryDescription,
+   required this.imagePath});
 }
 
 List<GalleryModel> galleryData = [
