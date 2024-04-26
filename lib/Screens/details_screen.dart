@@ -20,7 +20,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
       appBar: AppBar(
         backgroundColor: themeColors,
         centerTitle: true,
-        automaticallyImplyLeading: false,
         title: Text(
           widget.galleryModel.galleryName!,
           style: const TextStyle(
@@ -29,19 +28,21 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
         leading: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-                color: const Color(0xFF7ACA5E),
-                borderRadius: BorderRadius.circular(10.0)),
-            child: Center(
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios_new),
-                color: whiteColors,
+          child: GestureDetector(
+            onTap: () {
+        Navigator.pop(context);
+        },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: const Color(0xFF7ACA5E),
+                  borderRadius: BorderRadius.circular(10.0)),
+              child: const Center(
+                child: Icon(
+                  Icons.arrow_back_ios_new,
+                  color: whiteColors,
+                ),
               ),
             ),
           ),
