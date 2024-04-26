@@ -1,6 +1,6 @@
 # photo_gallery_ostad
 
-A new Flutter project.
+Photo Gallery App For Ostad Assingment
 
 ## Getting Started
 
