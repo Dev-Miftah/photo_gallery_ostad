@@ -4,7 +4,11 @@ class SuggestionModel{
   String? galleryDescription;
   String? imagePath;
 
-  SuggestionModel({required this.galleryName, required this.galleryTitle, required this.galleryDescription, required this.imagePath});
+  SuggestionModel({
+    required this.galleryName,
+    required this.galleryTitle,
+    required this.galleryDescription,
+    required this.imagePath});
 }
 
 List<SuggestionModel> suggestionData = [
