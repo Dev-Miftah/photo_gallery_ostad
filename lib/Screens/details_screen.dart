@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_gallery_ostad/Gallery_Data/suggestion_model.dart';
 import '../Constant/colors.dart';
 import '../Gallery_Data/gallery_model.dart';
@@ -42,7 +40,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios_new),
+                icon: const Icon(Icons.arrow_back_ios_new),
                 color: whiteColors,
               ),
             ),
@@ -73,8 +71,7 @@ Widget portraitOrientation(BuildContext context, galleryModel) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding:
-          const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
           child: Container(
             width: 390,
             height: 325,
@@ -97,8 +94,7 @@ Widget portraitOrientation(BuildContext context, galleryModel) {
           ),
         ),
         Padding(
-          padding:
-          const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Text(
             galleryModel.galleryTitle!,
             style: const TextStyle(
@@ -122,16 +118,14 @@ Widget portraitOrientation(BuildContext context, galleryModel) {
           ),
         ),
         Padding(
-          padding:
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(MediaQuery.of(context).size.width, 60),
                 backgroundColor: themeColors,
                 foregroundColor: Colors.white,
-                textStyle:
-                const TextStyle(fontSize: 20, letterSpacing: 0.5),
+                textStyle: const TextStyle(fontSize: 20, letterSpacing: 0.5),
                 elevation: 15,
               ),
               child: const Text(
@@ -158,50 +152,48 @@ Widget portraitOrientation(BuildContext context, galleryModel) {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 10, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: Row(
                 children: suggestionData.map((e) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 180,
-                      height: 180,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(
-                            image: CachedNetworkImageProvider(e.imagePath!),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.25),
-                                BlendMode.darken),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.50),
-                              spreadRadius: 0,
-                              blurRadius: 30,
-                              offset: const Offset(0, 15),
-                              blurStyle: BlurStyle.normal,
-                            )
-                          ],
-                          color: Colors.black),
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 22, vertical: 15),
-                        child: Text(
-                          e.galleryName!,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: whiteColors,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 180,
+                  height: 180,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                        image: CachedNetworkImageProvider(e.imagePath!),
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.25), BlendMode.darken),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.50),
+                          spreadRadius: 0,
+                          blurRadius: 30,
+                          offset: const Offset(0, 15),
+                          blurStyle: BlurStyle.normal,
+                        )
+                      ],
+                      color: Colors.black),
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 22, vertical: 15),
+                    child: Text(
+                      e.galleryName!,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: whiteColors,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                  );
-                }).toList()),
+                  ),
+                ),
+              );
+            }).toList()),
           ),
         )
       ],
@@ -211,150 +203,152 @@ Widget portraitOrientation(BuildContext context, galleryModel) {
 
 Widget landscapeOrientation(BuildContext context, galleryModel) {
   return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              child: Container(
-                width: 370,
-                height: 298,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    image: DecorationImage(
-                      image: NetworkImage(galleryModel.imagePath!),
-                      fit: BoxFit.cover,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.50),
-                        spreadRadius: 0,
-                        blurRadius: 35,
-                        offset: const Offset(5, 12),
-                        blurStyle: BlurStyle.normal,
-                      )
-                    ],
-                    color: Colors.black),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 25,
-                      vertical: 10,
-                    ),
-                    child: Text(
-                      galleryModel.galleryTitle!,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        color: blackColors,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Text(
-                      galleryModel.galleryDescription!,
-                      textAlign: TextAlign.start,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: blackColors,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: Size(MediaQuery.of(context).size.width, 60),
-                          backgroundColor: themeColors,
-                          foregroundColor: Colors.white,
-                          textStyle:
-                          const TextStyle(fontSize: 20, letterSpacing: 0.5),
-                          elevation: 15,
-                        ),
-                        child: const Text(
-                          'See More',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30,
-                    ),
-                    child: Text(
-                      'Suggestions',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: themeColors,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 5),
-                      child: Row(
-                          children: suggestionData.map((e) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 180,
-                                height: 180,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    image: DecorationImage(
-                                      image: CachedNetworkImageProvider(e.imagePath!),
-                                      fit: BoxFit.cover,
-                                      colorFilter: ColorFilter.mode(
-                                          Colors.black.withOpacity(0.25),
-                                          BlendMode.darken),
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.50),
-                                        spreadRadius: 0,
-                                        blurRadius: 30,
-                                        offset: const Offset(0, 15),
-                                        blurStyle: BlurStyle.normal,
-                                      )
-                                    ],
-                                    color: Colors.black),
-                                alignment: Alignment.bottomLeft,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 22, vertical: 15),
-                                  child: Text(
-                                    e.galleryName!,
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      color: whiteColors,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList()),
-                    ),
+    scrollDirection: Axis.vertical,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          child: Container(
+            width: 370,
+            height: 298,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                image: DecorationImage(
+                  image: NetworkImage(galleryModel.imagePath!),
+                  fit: BoxFit.cover,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.50),
+                    spreadRadius: 0,
+                    blurRadius: 35,
+                    offset: const Offset(5, 12),
+                    blurStyle: BlurStyle.normal,
                   )
                 ],
+                color: Colors.black),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 10,
+                ),
+                child: Text(
+                  galleryModel.galleryTitle!,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: blackColors,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
-            )
-          ]));
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Text(
+                  galleryModel.galleryDescription!,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: blackColors,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(MediaQuery.of(context).size.width, 60),
+                      backgroundColor: themeColors,
+                      foregroundColor: Colors.white,
+                      textStyle:
+                          const TextStyle(fontSize: 20, letterSpacing: 0.5),
+                      elevation: 15,
+                    ),
+                    child: const Text(
+                      'See More',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
+                child: Text(
+                  'Suggestions',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: themeColors,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                  child: Row(
+                      children: suggestionData.map((e) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 180,
+                        height: 180,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            image: DecorationImage(
+                              image: CachedNetworkImageProvider(e.imagePath!),
+                              fit: BoxFit.cover,
+                              colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.25),
+                                  BlendMode.darken),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.50),
+                                spreadRadius: 0,
+                                blurRadius: 30,
+                                offset: const Offset(0, 15),
+                                blurStyle: BlurStyle.normal,
+                              )
+                            ],
+                            color: Colors.black),
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 22, vertical: 15),
+                          child: Text(
+                            e.galleryName!,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: whiteColors,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList()),
+                ),
+              )
+            ],
+          ),
+        )
+      ],
+    ),
+  );
 }
