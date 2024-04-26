@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_gallery_ostad/Constant/colors.dart';
 import 'package:photo_gallery_ostad/Gallery_Data/gallery_model.dart';
@@ -65,7 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 image: DecorationImage(
-                  image: NetworkImage(galleryData[index].imagePath!),
+                 // image: NetworkImage(galleryData[index].imagePath!),
+                  image: CachedNetworkImageProvider(galleryData[index].imagePath!),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.25), BlendMode.darken),
@@ -100,61 +102,4 @@ class _HomeScreenState extends State<HomeScreen> {
     },)
     );
   }
-}
-
-
-Widget gridViewBuilder(Orientation orientation) {
-  return GridView.builder(
-      padding: const EdgeInsets.all(15.00),
-      itemCount: 20,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: (orientation == Orientation.landscape ? 4 : 2),
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 25,
-      ),
-      itemBuilder: (context, index) {
-        return InkWell(
-          splashColor: Colors.transparent,
-          onTap: () {
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => SelectedAlbum(index: index)));
-          },
-          child: Container(
-              width: 180,
-              height: 180,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  // image: DecorationImage(
-                  //   image: NetworkImage(cards[index]["AlbumPicture"]!),
-                  //   fit: BoxFit.cover,
-                  //   colorFilter: ColorFilter.mode(
-                  //       Colors.black.withOpacity(0.25), BlendMode.darken),
-                  // ),
-                  color: Colors.black,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.50),
-                      spreadRadius: 0,
-                      blurRadius: 30,
-                      offset: const Offset(0, 15),
-                      blurStyle: BlurStyle.normal,
-                    )
-                  ]),
-              alignment: Alignment.bottomLeft,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 12.0),
-                child: Text(
-                  "AlbumName",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: whiteColors,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              )),
-        );
-      });
 }

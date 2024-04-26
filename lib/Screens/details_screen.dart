@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,16 +58,16 @@ class _DetailsScreenState extends State<DetailsScreen> {
       body: OrientationBuilder(
           builder: (BuildContext context, Orientation orientation) {
         if (orientation == Orientation.portrait) {
-          return PortraitOrientation(context, widget.galleryModel);
+          return portraitOrientation(context, widget.galleryModel);
         } else {
-          return LandscapeOrientation(context, widget.galleryModel);
+          return landscapeOrientation(context, widget.galleryModel);
         }
       }),
     );
   }
 }
 
-Widget PortraitOrientation(BuildContext context, galleryModel) {
+Widget portraitOrientation(BuildContext context, galleryModel) {
   return SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +81,7 @@ Widget PortraitOrientation(BuildContext context, galleryModel) {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 image: DecorationImage(
-                  image: NetworkImage(galleryModel.imagePath!),
+                  image: CachedNetworkImageProvider(galleryModel.imagePath!),
                   fit: BoxFit.cover,
                 ),
                 boxShadow: [
@@ -169,7 +170,7 @@ Widget PortraitOrientation(BuildContext context, galleryModel) {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(
-                            image: NetworkImage(e.imagePath!),
+                            image: CachedNetworkImageProvider(e.imagePath!),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
                                 Colors.black.withOpacity(0.25),
@@ -208,7 +209,7 @@ Widget PortraitOrientation(BuildContext context, galleryModel) {
   );
 }
 
-Widget LandscapeOrientation(BuildContext context, galleryModel) {
+Widget landscapeOrientation(BuildContext context, galleryModel) {
   return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Row(
@@ -318,7 +319,7 @@ Widget LandscapeOrientation(BuildContext context, galleryModel) {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                      image: NetworkImage(e.imagePath!),
+                                      image: CachedNetworkImageProvider(e.imagePath!),
                                       fit: BoxFit.cover,
                                       colorFilter: ColorFilter.mode(
                                           Colors.black.withOpacity(0.25),
