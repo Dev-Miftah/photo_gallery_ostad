@@ -1,16 +1,10 @@
 # photo_gallery_ostad
 
-Photo Gallery App For Ostad Assingment
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+<p align =""justify>Photo Gallery App For Ostad Assingment</p>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img align="left" alt ="Dev-Miftah" width ="200" src="https://github.com/Dev-Miftah/photo_gallery_ostad/assets/136071380/61917936-e97c-485e-8d91-441b5a6da163"></img>
+<img align="left" alt ="Dev-Miftah" width ="200" src="https://github.com/Dev-Miftah/photo_gallery_ostad/assets/136071380/d8961ea1-d906-4713-8769-f11a9413ed03"></img>
+<img alt ="Dev-Miftah" width ="200" src="https://github.com/Dev-Miftah/photo_gallery_ostad/assets/136071380/1064f3cb-87bf-4a70-a4dc-de6751f25a16"></img>
+<img alt ="Dev-Miftah" width ="200" src="https://github.com/Dev-Miftah/photo_gallery_ostad/assets/136071380/c7940e79-9992-4b95-b231-b3b4edc1fc16"></img>
